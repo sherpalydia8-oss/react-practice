@@ -21,8 +21,7 @@ const Movies = () => {
 
   return (
     <div className="min-h-screen bg-[#100e19] text-white">
-
-      {/* Navbar */}
+      
       <nav className="flex justify-between items-center px-8 md:px-16 py-6 border-b border-white/10">
 
         <h1 className="text-3xl font-extrabold tracking-wide">
@@ -35,10 +34,7 @@ const Movies = () => {
         </p>
 
       </nav>
-
-      {/* Hero Section */}
       <section className="px-8 md:px-16 py-16">
-
         <p className="text-pink-400 font-semibold tracking-widest mb-4">
           WELCOME TO LYDIAVERSE
         </p>
@@ -139,7 +135,6 @@ const Movies = () => {
 
       </section>
 
-      {/* Footer */}
       <footer className="border-t border-white/10 text-center py-8">
 
         <h2 className="text-xl font-bold">

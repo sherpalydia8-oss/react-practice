@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 import AddExpense from "./AddExpenses";
 
-function Expenses({ expenses, setExpenses }) {
+function Expenses({ expenses=[], setExpenses }) {
   const [search, setSearch] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -53,7 +53,6 @@ function Expenses({ expenses, setExpenses }) {
         >
           + Add Expense
         </button>
-
       </div>
 
       {showForm && (
@@ -65,7 +64,6 @@ function Expenses({ expenses, setExpenses }) {
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <div className="mb-6 flex flex-col gap-3 sm:flex-row">
-
           <input
             type="text"
             placeholder="Search expenses..."
@@ -87,7 +85,6 @@ function Expenses({ expenses, setExpenses }) {
             <option value="Education">Education</option>
             <option value="Other">Other</option>
           </select>
-
         </div>
 
         <div className="overflow-x-auto">
@@ -105,7 +102,6 @@ function Expenses({ expenses, setExpenses }) {
             <tbody>
               {filteredExpenses.map((item) => (
                 <tr key={item.id} className="border-b">
-
                   <td className="whitespace-nowrap px-4 py-4">
                     {item.date}
                   </td>
@@ -136,10 +132,8 @@ function Expenses({ expenses, setExpenses }) {
                       >
                         <Trash2 size={17} />
                       </button>
-
                     </div>
                   </td>
-
                 </tr>
               ))}
 
@@ -150,7 +144,6 @@ function Expenses({ expenses, setExpenses }) {
                   </td>
                 </tr>
               )}
-
             </tbody>
           </table>
         </div>
@@ -160,48 +153,3 @@ function Expenses({ expenses, setExpenses }) {
 }
 
 export default Expenses;
-
-import { useState } from "react";
-
-import Navbar from "./Components/Navbar";
-import SummaryCards from "./Components/SummaryCards";
-import Expenses from "./Components/Expenses";
-
-function App() {
-
-  const [expenses, setExpenses] = useState([
-    {
-      id: 1,
-      date: "2026-11-01",
-      title: "Momo",
-      category: "Food & Dining",
-      amount: 800
-    },
-    {
-      id: 2,
-      date: "2026-11-01",
-      title: "Masara",
-      category: "Personal Care",
-      amount: 100
-    }
-  ]);
-
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-
-      <main className="mx-auto w-full max-w-6xl px-4 py-5 sm:px-6">
-
-        <SummaryCards expenses={expenses} />
-
-        <Expenses
-          expenses={expenses}
-          setExpenses={setExpenses}
-        />
-
-      </main>
-    </div>
-  );
-}
-
-export default App;
